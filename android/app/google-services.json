@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "16281403508",
+    "project_id": "ecommercenew-d400c",
+    "storage_bucket": "ecommercenew-d400c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:16281403508:android:ad1e250d2f57fa9c329121",
+        "android_client_info": {
+          "package_name": "com.example.ecommerce"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzZV-sJHzHEy1AtdADD5buNpNambOMsPk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

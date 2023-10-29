@@ -1,14 +1,17 @@
+import 'package:ecommerce/Screen/categories/men_categ.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ItemData {
   String label;
   RxBool isSelected;
+
   ItemData({required this.label, bool isSelected = false})
       : isSelected = isSelected.obs;
 }
 
 class CategoryController extends GetxController {
+   RxInt selectedIndex = 0.obs;
   RxList<ItemData> items = [
     ItemData(label: "Men", isSelected: true),
     ItemData(label: "Women"),
@@ -22,15 +25,17 @@ class CategoryController extends GetxController {
   ].obs;
 
   PageController pageController = PageController();
+  // ScrollController scrollController = ScrollController();
 
   void selectCategory(int index) {
+    selectedIndex.value = index;
     for (var item in items) {
       item.isSelected.value = false;
     }
     items[index].isSelected.value = true;
     pageController.animateToPage(
       index,
-      duration: Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 200),
       curve: Curves.easeInOut,
     );
   }
@@ -38,6 +43,8 @@ class CategoryController extends GetxController {
 
 class CatView extends StatelessWidget {
   final CategoryController categoryController = Get.find<CategoryController>();
+
+   CatView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,10 +55,13 @@ class CatView extends StatelessWidget {
       child: PageView(
         controller: categoryController.pageController,
         scrollDirection: Axis.vertical,
+        onPageChanged: (index) {
+          categoryController.selectCategory(index);
+        },
         children: List.generate(categoryController.items.length, (index) {
-          return Center(
-            child: Text(
-                "${categoryController.items[index].label} category"),
+          return MenCategories(
+            catnam: categoryController.items[index].label,
+            catindex:index,
           );
         }),
       ),
@@ -61,6 +71,8 @@ class CatView extends StatelessWidget {
 
 class Sidenavigator extends StatelessWidget {
   final CategoryController categoryController = Get.find<CategoryController>();
+
+   Sidenavigator({super.key});
 
   @override
   Widget build(BuildContext context) {

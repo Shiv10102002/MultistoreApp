@@ -1,0 +1,4 @@
+final String stripePublishableKey =
+    "pk_test_51O5BLUSEifdLUfhMYe3vo189cHhMRKX1fExGOqJ7jFJVHrIpzrc85ysd4nimDLRQSQRwNpf8CqbJshLubzazuvld004ixaOjR7";
+final String stripeSecretKey =
+    'sk_test_51O5BLUSEifdLUfhMyjzcqvbXQLMz92GNjaKfKEN3nAtXa8MAnGcQMPEm6EGa1c8KJWu6WklSrLg0vrwHWBTdP0Gy00nAEOx1jt';

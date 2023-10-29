@@ -1,3 +1,4 @@
+import 'package:ecommerce/Screen/gallary_screen.dart';
 import 'package:ecommerce/Widgets/demo_search.dart';
 import 'package:flutter/material.dart';
 
@@ -9,10 +10,11 @@ class HomeScreen extends StatelessWidget {
     return DefaultTabController(
       length: 9,
       child: Scaffold(
+          backgroundColor: Colors.blueGrey.shade100.withOpacity(0.5),
           appBar: AppBar(
             elevation: 0,
             backgroundColor: Colors.white,
-            title:const DemoSearch(),
+            title: const DemoSearch(),
             bottom: const TabBar(
                 isScrollable: true,
                 indicatorColor: Colors.orangeAccent,
@@ -54,40 +56,20 @@ class HomeScreen extends StatelessWidget {
           ),
           body: const TabBarView(
             children: [
-              Center(
-                child: Text("men"),
-              ),
-              Center(
-                child: Text("Women"),
-              ),
-              Center(
-                child: Text("Shoes"),
-              ),
-              Center(
-                child: Text("Bags"),
-              ),
-              Center(
-                child: Text("electornics"),
-              ),
-              Center(
-                child: Text("kids"),
-              ),
-              Center(
-                child: Text("fashion"),
-              ),
-              Center(
-                child: Text("womenfashion"),
-              ),
-              Center(
-                child: Text("jewellery"),
-              ),
+              GallaryScreen(cat: 'men'),
+              GallaryScreen(cat: 'women'),
+              GallaryScreen(cat: 'shoes'),
+              GallaryScreen(cat: 'bags'),
+              GallaryScreen(cat: 'electronics'),
+              GallaryScreen(cat: 'kids'),
+              GallaryScreen(cat: 'fashion'),
+              GallaryScreen(cat: 'womenfashion'),
+              GallaryScreen(cat: 'jewellery'),
             ],
           )),
     );
   }
 }
-
-
 
 class RepeatTab extends StatelessWidget {
   final String label;
@@ -98,8 +80,11 @@ class RepeatTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Tab(
-      child: Text(label,style: const TextStyle(color: Colors.black),),
+    return Tab(
+      child: Text(
+        label,
+        style: const TextStyle(color: Colors.black),
+      ),
     );
   }
 }
